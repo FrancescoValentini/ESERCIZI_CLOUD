@@ -15,16 +15,11 @@ namespace ClientServerExampleModels.Models {
 
         private IPAddress ipAddr;
 
-        private Byte[] data;
-
-        private string strData = null;
-
         private bool running = false;
 
         public TCPServer(string ip, int port) {
             this.ip = ip;
             this.port = port;
-            this.data = new Byte[1024];
 
             ipAddr = IPAddress.Parse(ip);
             server = new TcpListener(ipAddr, port);
@@ -41,7 +36,6 @@ namespace ClientServerExampleModels.Models {
         }
 
         private void listener() {
-            int i = 0;
             try {
                 while (running) {
                     // Accetta la connessione
@@ -49,27 +43,13 @@ namespace ClientServerExampleModels.Models {
 
                     Console.WriteLine("Nuova connessione");
 
-                    strData = null;
 
                     // Stream per lettura / scrittura datti
                     NetworkStream stream = client.GetStream();
 
-                    while ((i = stream.Read(data, 0, data.Length)) != 0) {
-                        // Conversione da byte in ascii
-                        strData = System.Text.Encoding.ASCII.GetString(data, 0, i);
-                        Console.Write("RX: {0}", strData);
+                    ProcessIncomingData(stream);
 
-                        // Processa i dati
-                        strData = ReverseStr(strData);
 
-                        // Converte da ascii a bytes grezzi
-                        byte[] msg = System.Text.Encoding.ASCII.GetBytes(strData + "\n");
-
-                        // invia i dati
-                        stream.Write(msg, 0, msg.Length);
-
-                        Console.Write("TX: {0}", strData);
-                    }
                 }
             } catch (SocketException e) {
                 Console.WriteLine("SocketException: {0}", e);
@@ -78,7 +58,28 @@ namespace ClientServerExampleModels.Models {
         }
         
 
+        private void ProcessIncomingData(NetworkStream stream) {
+            int i = 0;
+            byte[] buff = new byte[1024];
+            string str;
+            while ((i = stream.Read(buff, 0, buff.Length)) != 0) {
+                // Conversione da byte in ascii
+                str = System.Text.Encoding.ASCII.GetString(buff, 0, i);
 
+                Console.Write("RX: {0}", str);
+
+                // Processa i dati
+                str = ReverseStr(str.Replace("\n",""));
+
+                Console.Write("TX: {0}", str);
+                WriteStringToStream(stream, str + "\n");
+            }
+        }
+
+        private void WriteStringToStream(NetworkStream stream, string str) {
+            byte[] msg = System.Text.Encoding.ASCII.GetBytes(str);
+            stream.Write(msg, 0, msg.Length);
+        }
 
         private static string ReverseStr(string s) {
             char[] charArray = s.ToCharArray();
