@@ -10,7 +10,7 @@ namespace RubricaTelefonica.Models.Models {
         public string cognome { get; set; }
         public string telefono { get; set; }
 
-        Persona(string nome, string cognome, string telefono) {
+        public Persona(string nome, string cognome, string telefono) {
             this.nome = nome;
             this.cognome = cognome;
             this.telefono = telefono;
