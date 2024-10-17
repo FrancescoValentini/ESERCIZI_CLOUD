@@ -3,7 +3,13 @@
 namespace Server {
     class Server {
         public static void Main(String[] args) {
-            TCPServer srv = new TCPServer("127.0.0.1", 2323);
+            Console.Write("IP Su cui ascoltare: ");
+            string ip = Console.ReadLine();
+
+            Console.Write("Porta: ");
+            Int32 port = Int32.Parse(Console.ReadLine());
+
+            TCPServer srv = new TCPServer(ip, port);
             srv.StartServer();
         }
     }
