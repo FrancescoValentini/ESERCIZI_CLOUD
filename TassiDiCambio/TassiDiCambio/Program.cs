@@ -11,8 +11,6 @@ namespace TassiDiCambio
             // Inizializza l'oggetto per gestire i tassi di cambio
             BANKITALIATassiDiCambio tassiCambio = new BANKITALIATassiDiCambio(url);
             tassiCambio.DoRESTrequest();
-            // Ottieni i tassi di cambio
-            TassiCambioData dati = tassiCambio.GetTassiCambio();
 
             string sc = "";
             do {
