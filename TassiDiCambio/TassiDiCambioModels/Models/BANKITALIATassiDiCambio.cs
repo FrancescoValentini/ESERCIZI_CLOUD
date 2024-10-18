@@ -72,12 +72,12 @@ namespace TassiDiCambioModels.Models
         }
 
         // Metodo per ottenere tutti i codici ISO dei paesi
-        public List<string> GetAllCountriesIso() {
+        public List<string> GetAllCurrenciesIso() {
             if (tassiCambio != null && tassiCambio.Currencies != null) {
                 return tassiCambio.Currencies
                     .SelectMany(currency => currency.Countries)
-                    .Where(country => !string.IsNullOrEmpty(country.CountryISO))
-                    .Select(country => country.CountryISO)
+                    .Where(currency => !string.IsNullOrEmpty(currency.CurrencyISO))
+                    .Select(currency => currency.CurrencyISO)
                     .Distinct()
                     .ToList();
             }
