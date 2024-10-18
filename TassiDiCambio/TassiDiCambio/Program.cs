@@ -1,6 +1,4 @@
-﻿
-
-using TassiDiCambioModels.Models;
+﻿using TassiDiCambioModels.Models;
 using TassiDiCambioModels.Models.ClassiServizioRest;
 
 namespace TassiDiCambio
@@ -16,30 +14,39 @@ namespace TassiDiCambio
             // Ottieni i tassi di cambio
             TassiCambioData dati = tassiCambio.GetTassiCambio();
 
-            // Stampa alcune informazioni di esempio
-            Console.WriteLine($"Totale record: {dati.ResultsInfo.TotalRecords}");
-            Console.WriteLine($"Prima valuta: {dati.Currencies[0].Name}, Paese: {dati.Currencies[0].Countries[0].StrCountry}");
+            string sc = "";
+            do {
+                sc = Menu().ToUpper();
+                switch (sc) {
+                    case "V":
+                        tassiCambio.GetAllCurrenciesIso().ForEach(s => Console.WriteLine(s));
+                        break;
+                    case "C":
+                        Currency c = tassiCambio.GetCurrencyByIsoCode(ReadString("ISO CODE: "));
+                        Console.WriteLine(c == null ? "Valuta non trovata" : tassiCambio.GetCurrencyByIsoCode("ADP").Name);
+                        break;
+                    case "S":
+                        tassiCambio.GetAllCountriesNames().ForEach(s =>  Console.WriteLine(s));
+                        break;
+                }
+            } while (sc != "Q");
+        }
 
-            Console.WriteLine("ISO CODE ADP");
-            Currency c = tassiCambio.GetCurrencyByIsoCode("ADP");
-            Console.WriteLine(c.Name);
+        private static string Menu() {
+            Console.WriteLine("V) Visualizza tutti i codici delle valute");
+            Console.WriteLine("C) Ricerca valuta mediante codice ISO");
+            Console.WriteLine("S) Visualizza tutte le nazioni presenti");
+            Console.WriteLine("");
+            return ReadString("> ");
+        }
 
-            Console.WriteLine("COUNTRY NAME ANDORRA");
-            Currency c1 = tassiCambio.GetCurrencyByCountryName("ANDORRA");
-            Console.WriteLine(c1.Name);
-
-            Console.WriteLine("Tutti gli iso");
-            List<string> a = tassiCambio.GetAllCurrenciesIso();
-            foreach (string code in a) {
-                Console.WriteLine($"{code}");
-            }
-
-
-            Console.WriteLine("Tutti Country");
-            List<string> a1 = tassiCambio.GetAllCountriesNames();
-            foreach (string code in a1) {
-                Console.WriteLine($"{code}");
-            }
+        private static string ReadString(string prompt) {
+            string str = "";
+            do {
+                Console.Write(prompt);
+                str = Console.ReadLine();
+            }while(str == "");
+            return str;
         }
     }
 }
