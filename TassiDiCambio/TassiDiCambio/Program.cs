@@ -5,8 +5,8 @@ namespace TassiDiCambio
 {
     public class TassiDiCambio {
         public static void Main(string[] args) {
-            // URL dell'API della Banca d'Italia (simulato in questo esempio)
-            string url = "http://127.0.0.1/tassi.json";
+            // URL dell'API della Banca d'Italia
+            string url = "https://tassidicambio.bancaditalia.it/terzevalute-wf-web/rest/v1.0/currencies";
 
             // Inizializza l'oggetto per gestire i tassi di cambio
             BANKITALIATassiDiCambio tassiCambio = new BANKITALIATassiDiCambio(url);
@@ -23,7 +23,7 @@ namespace TassiDiCambio
                         break;
                     case "C":
                         Currency c = tassiCambio.GetCurrencyByIsoCode(ReadString("ISO CODE: "));
-                        Console.WriteLine(c == null ? "Valuta non trovata" : tassiCambio.GetCurrencyByIsoCode("ADP").Name);
+                        Console.WriteLine(c == null ? "Valuta non trovata" : c.Name);
                         break;
                     case "S":
                         tassiCambio.GetAllCountriesNames().ForEach(s =>  Console.WriteLine(s));
