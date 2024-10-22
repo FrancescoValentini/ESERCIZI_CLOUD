@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WinForm_RUBRICA {
-    internal static class Program {
+    public static class Program {
+        
         /// <summary>
         /// Punto di ingresso principale dell'applicazione.
         /// </summary>
