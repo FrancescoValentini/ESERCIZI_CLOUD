@@ -52,16 +52,27 @@ namespace WinForm_RUBRICA {
         }
 
         private void btnCerca_Click(object sender, EventArgs e) {
-            dataListSearch(txtbTelefonoRicerca.Text);
+            if (txtbTelefonoRicerca.Text == "") {
+                refreshDataList();
+            } else {
+                dataListSearch(txtbTelefonoRicerca.Text);
+            }
+            
         }
 
         private void btnElimina_Click(object sender, EventArgs e) {
-            if(txtbTelefonoRicerca.Text == "") {
-                refreshDataList();
-            } else {
-                rubr.DeletePersona(txtbTelefonoRicerca.Text);
-                refreshDataList();
+            rubr.DeletePersona(txtbTelefonoRicerca.Text);
+            refreshDataList();
+        }
+
+        private void eLIMINACONTATTOToolStripMenuItem_Click(object sender, EventArgs e) {
+
+
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows) {
+                string telefono = (string)row.Cells[2].Value;
+                rubr.DeletePersona(telefono);
             }
+            refreshDataList();
         }
     }
 }

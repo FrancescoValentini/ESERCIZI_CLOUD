@@ -42,10 +42,13 @@
             this.cognomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.eLIMINACONTATTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personaBindingSource)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -198,6 +201,7 @@
             this.nomeDataGridViewTextBoxColumn,
             this.cognomeDataGridViewTextBoxColumn,
             this.telefonoDataGridViewTextBoxColumn});
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.DataSource = this.personaBindingSource;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
@@ -232,6 +236,20 @@
             this.personaBindingSource.DataSource = typeof(WinFormRubrica_models.Models.Persona);
             this.personaBindingSource.CurrentChanged += new System.EventHandler(this.personaBindingSource_CurrentChanged);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eLIMINACONTATTOToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 48);
+            // 
+            // eLIMINACONTATTOToolStripMenuItem
+            // 
+            this.eLIMINACONTATTOToolStripMenuItem.Name = "eLIMINACONTATTOToolStripMenuItem";
+            this.eLIMINACONTATTOToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.eLIMINACONTATTOToolStripMenuItem.Text = "ELIMINA CONTATTO";
+            this.eLIMINACONTATTOToolStripMenuItem.Click += new System.EventHandler(this.eLIMINACONTATTOToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,6 +269,7 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personaBindingSource)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -275,6 +294,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cognomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem eLIMINACONTATTOToolStripMenuItem;
     }
 }
 
