@@ -12,13 +12,13 @@ using WinFormRubrica_models.Models;
 namespace WinForm_RUBRICA {
     public partial class Form1 : Form {
 
-        Rubrica rubr = new Rubrica("Rubrica");
+        Rubrica rubr;
         public Form1() {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            
+            rubr = new Rubrica("Rubrica");
         }
 
         private void personaBindingSource_CurrentChanged(object sender, EventArgs e) {
