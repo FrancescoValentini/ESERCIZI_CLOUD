@@ -38,21 +38,22 @@
             this.btnCerca = new System.Windows.Forms.Button();
             this.txtbTelefonoRicerca = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.eLIMINACONTATTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cognomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.eLIMINACONTATTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personaBindingSource)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.personaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btnInserisci);
             this.groupBox1.Controls.Add(this.txtbTelefono);
             this.groupBox1.Controls.Add(this.label3);
@@ -146,6 +147,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.btnElimina);
             this.groupBox2.Controls.Add(this.btnCerca);
             this.groupBox2.Controls.Add(this.txtbTelefonoRicerca);
@@ -195,6 +197,9 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -209,6 +214,20 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(620, 545);
             this.dataGridView1.TabIndex = 2;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eLIMINACONTATTOToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 26);
+            // 
+            // eLIMINACONTATTOToolStripMenuItem
+            // 
+            this.eLIMINACONTATTOToolStripMenuItem.Name = "eLIMINACONTATTOToolStripMenuItem";
+            this.eLIMINACONTATTOToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.eLIMINACONTATTOToolStripMenuItem.Text = "ELIMINA CONTATTO";
+            this.eLIMINACONTATTOToolStripMenuItem.Click += new System.EventHandler(this.eLIMINACONTATTOToolStripMenuItem_Click);
             // 
             // nomeDataGridViewTextBoxColumn
             // 
@@ -236,20 +255,6 @@
             this.personaBindingSource.DataSource = typeof(WinFormRubrica_models.Models.Persona);
             this.personaBindingSource.CurrentChanged += new System.EventHandler(this.personaBindingSource_CurrentChanged);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.eLIMINACONTATTOToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(182, 48);
-            // 
-            // eLIMINACONTATTOToolStripMenuItem
-            // 
-            this.eLIMINACONTATTOToolStripMenuItem.Name = "eLIMINACONTATTOToolStripMenuItem";
-            this.eLIMINACONTATTOToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.eLIMINACONTATTOToolStripMenuItem.Text = "ELIMINA CONTATTO";
-            this.eLIMINACONTATTOToolStripMenuItem.Click += new System.EventHandler(this.eLIMINACONTATTOToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,8 +273,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personaBindingSource)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.personaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
