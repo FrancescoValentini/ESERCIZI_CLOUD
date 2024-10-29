@@ -1,0 +1,44 @@
+﻿@model MVC_Example1.Models.Rubrica
+
+<h1>@Model.nome</h1>
+
+<a href="@Url.Action("FormContatto", "Rubrica")">Aggiungi nuovo contatto</a>
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Telefono</th>
+        <th>Elimina Contatto</th>
+    </tr>
+
+    @foreach (var persona in Model.getMemoria()) {
+        <tr>
+            <td>@persona.nome</td>
+            <td>@persona.cognome</td>
+            <td>@persona.telefono</td>
+            <td>
+                <a href="@Url.Action("DeletePersona", "Rubrica", new { telefono = persona.telefono })">Elimina</a>
+            </td>
+        </tr>
+    }
+
+</table>
