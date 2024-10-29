@@ -28,6 +28,19 @@ namespace MVC_Example1.Controllers {
             }
         }
 
+        // Metodo per modificare un nuovo contatto
+        [HttpPost]
+        public IActionResult UpdatePersona(String telefono,Persona p) {
+            try {
+                rubrica.UpdatePersona(telefono, p);
+                return RedirectToAction("Index");
+            } catch (Exception ex) {
+                // Gestione errore (persona già presente)
+                ViewBag.ErrorMessage = ex.Message;
+                return View("FormContatto");
+            }
+        }
+
 
         // Metodo per cancellare un contatto (passa il telefono come identificatore)
         public IActionResult DeletePersona(string telefono) {

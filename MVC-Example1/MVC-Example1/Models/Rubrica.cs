@@ -31,6 +31,10 @@ namespace MVC_Example1.Models {
             memoria.Add(p);
         }
 
+        public void UpdatePersona(String telefono, Persona p) {
+            DeletePersona(telefono);
+            AddPersona(p);
+        }
         public Persona FindPersona(string telefono) {
             foreach (Persona persona in memoria) {
                 if (persona.telefono == telefono) {
