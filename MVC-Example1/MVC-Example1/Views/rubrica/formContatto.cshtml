@@ -7,14 +7,37 @@
 }
 
 <form asp-action="AddPersona" asp-controller="Rubrica" method="post">
-    <label>Nome:</label>
-    <input type="text" name="nome" required /><br />
-
-    <label>Cognome:</label>
-    <input type="text" name="cognome" required /><br />
-
-    <label>Telefono:</label>
-    <input type="text" name="telefono" required /><br />
-
-    <button type="submit">Aggiungi</button>
+    <table>
+        <tr>
+            <td>
+                <label>Nome:</label>
+            </td>
+            <td>
+                <input type="text" name="nome" required /><br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Cognome:</label>
+            </td>
+            <td>
+                <input type="text" name="cognome" required /><br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Telefono:</label>
+            </td>
+            <td>
+                <input type="text" name="telefono" required /><br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Aggiungi</button>
+            </td>
+        </tr>
+    </table>
 </form>
+
+

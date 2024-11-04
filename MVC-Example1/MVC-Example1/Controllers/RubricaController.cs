@@ -43,6 +43,7 @@ namespace MVC_Example1.Controllers {
 
 
         // Metodo per cancellare un contatto (passa il telefono come identificatore)
+
         public IActionResult DeletePersona(string telefono) {
             try {
                 rubrica.DeletePersona(telefono);
