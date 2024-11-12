@@ -9,7 +9,7 @@ namespace MVC_ComuniItaliani.Controllers {
         public IActionResult Index() {
             ComuniISTATElencoComuniViewModel vm = new ComuniISTATElencoComuniViewModel();
 
-            Comune[] elencoComuni = FunzioniInterrogazioneISTAT.getElencoComuni().Result;
+            Comune[] elencoComuni = FunzioniInterrogazioneISTAT.getElencoComuni();
             vm.ElencoComuni = elencoComuni;
             return View(vm);
         }

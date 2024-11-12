@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace FunzioniISTAT {
     public class FunzioniInterrogazioneISTAT {
-        public static async Task<Comune[]> getElencoComuni() {
+        public static Comune[] getElencoComuni() {
             string Url = "https://www.istat.it/storage/codici-unita-amministrative/Elenco-comuni-italiani.csv";
 
             string[] righeCSV = PerformHTTPGet(Url).Result.Split('\n');
 
             List<Comune> listaComuni = new List<Comune>();
 
+            /**
+             * Il ciclo for parte da 3 per esculdere le 3 righe di header nel CSV
+             * Si ferma escludendo l'untima riga in quanto la risposta del servizio
+             * web restituisce una riga vuota.
+             */
             for (int i = 3; i < righeCSV.Length - 1; i++) {
                 listaComuni.Add(GetComune(righeCSV[i]));
             }
