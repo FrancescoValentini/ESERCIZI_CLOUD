@@ -10,25 +10,41 @@ namespace FunzioniISTAT {
         public static async Task<Comune[]> getElencoComuni() {
             string Url = "https://www.istat.it/storage/codici-unita-amministrative/Elenco-comuni-italiani.csv";
 
-            var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync(Url);
-            string content = await response.Content.ReadAsStringAsync();
-
-            string[] righeCSV = content.Split('\n');
+            string[] righeCSV = PerformHTTPGet(Url).Result.Split('\n');
 
             List<Comune> listaComuni = new List<Comune>();
 
             for (int i = 3; i < righeCSV.Length - 1; i++) {
-                listaComuni.Add(new Comune {
-                    CodiceCatastaleComune = righeCSV[i].Split(';')[19],
-                    DenominazioneItaliano = righeCSV[i].Split(';')[6],
-                    RipartizioneGeografica = righeCSV[i].Split(';')[9],
-                    DenominazioneRegione = righeCSV[i].Split(';')[10],
-                    DenominazioneUnitaSovracomunale = righeCSV[i].Split(';')[11]
-                });
+                listaComuni.Add(GetComune(righeCSV[i]));
             }
 
             return listaComuni.ToArray();
+        }
+        /**
+         * Metodo per effettuare la richiesta GET HTTP ed ottenere il body
+         * come stringa
+         * 
+         */
+        private static async Task<string> PerformHTTPGet(string url) {
+            HttpClient httpClient = new HttpClient();
+
+            var response = await httpClient.GetAsync(url);
+
+            return await response.Content.ReadAsStringAsync();
+        }
+
+        /**
+         * Metodo che prende come parametro di ingresso una riga CSV e restituisce
+         * l'oggetto Comune
+         */
+        private static Comune GetComune(string csvRow) {
+            return new Comune {
+                CodiceCatastaleComune = csvRow.Split(';')[19],
+                DenominazioneItaliano = csvRow.Split(';')[6],
+                RipartizioneGeografica = csvRow.Split(';')[9],
+                DenominazioneRegione = csvRow.Split(';')[10],
+                DenominazioneUnitaSovracomunale = csvRow.Split(';')[11]
+            };
         }
     }
 }
