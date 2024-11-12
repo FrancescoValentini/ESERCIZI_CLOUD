@@ -2,13 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Json;
-using System.Net.WebSockets;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FunzioniISTAT {
-    public static class FunzioniInterrogazioneISTAT {
+    public class FunzioniInterrogazioneISTAT {
         public static async Task<Comune[]> getElencoComuni() {
             string Url = "https://www.istat.it/storage/codici-unita-amministrative/Elenco-comuni-italiani.csv";
 
@@ -20,7 +18,7 @@ namespace FunzioniISTAT {
 
             List<Comune> listaComuni = new List<Comune>();
 
-            for (int i = 3; i < righeCSV.Length-1; i++) {
+            for (int i = 3; i < righeCSV.Length - 1; i++) {
                 listaComuni.Add(new Comune {
                     CodiceCatastaleComune = righeCSV[i].Split(';')[19],
                     DenominazioneItaliano = righeCSV[i].Split(';')[6],
@@ -32,6 +30,5 @@ namespace FunzioniISTAT {
 
             return listaComuni.ToArray();
         }
-
     }
 }

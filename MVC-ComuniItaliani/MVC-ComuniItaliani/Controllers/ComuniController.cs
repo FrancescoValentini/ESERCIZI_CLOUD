@@ -1,9 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MVC_ComuniItaliani.ViewModels;
+using FunzioniISTAT;
+using FunzioniISTAT.Modelli;
+
 
 namespace MVC_ComuniItaliani.Controllers {
     public class ComuniController : Controller {
         public IActionResult Index() {
-            return View();
+            ComuniISTATElencoComuniViewModel vm = new ComuniISTATElencoComuniViewModel();
+
+            Comune[] elencoComuni = FunzioniInterrogazioneISTAT.getElencoComuni().Result;
+            vm.ElencoComuni = elencoComuni;
+            return View(vm);
         }
 
 
