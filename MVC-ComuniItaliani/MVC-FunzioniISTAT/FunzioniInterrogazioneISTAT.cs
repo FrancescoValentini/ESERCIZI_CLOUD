@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MVC_FunzioniISTAT {
-    public class FunzioniInterrogazioneISTAT {
+    public static class FunzioniInterrogazioneISTAT {
 
     }
 }
