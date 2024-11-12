@@ -1,4 +1,6 @@
-﻿@model IEnumerable<MVC_ComuniItaliani.Models.Comune>
+﻿@using MVC_ComuniItaliani.ViewModels
+@model ComuniISTATElencoComuniViewModel
+
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +14,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Codice Comune Alfanumerico</th>
+                    <th>Codice Catastale</th>
                     <th>Denominazione in Italiano</th>
                     <th>Ripartizione Geografica</th>
                     <th>Denominazione Regione</th>
@@ -20,8 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var comune in Model)
-                {
+                @foreach (var comune in Model.ElencoComuni) {
                     <tr>
                         <td>@comune.CodiceCatastaleComune</td>
                         <td>@comune.DenominazioneItaliano</td>
