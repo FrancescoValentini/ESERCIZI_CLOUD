@@ -22,5 +22,13 @@ namespace Bologna.Modelli {
             return locale;
 
         }
+
+        public static async Task<LocaleBologna[]> RicercaLocali(String RicercaPerDenominazione) {
+            LocaleBologna[] locali = await GetLocaliAsync();
+
+            return locali.Where(s => s.Demonimazione.ToLower().Contains(RicercaPerDenominazione.ToLower())).ToArray();
+        }
     }
+
+
 }

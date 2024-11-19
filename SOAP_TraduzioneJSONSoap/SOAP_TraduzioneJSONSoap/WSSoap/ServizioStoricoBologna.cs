@@ -15,7 +15,7 @@ namespace SOAP_TraduzioneJSONSoap.WSSoap {
         }
 
         public LocaleBologna[] ricercaLocaliStorici(string ricerca) {
-            throw new NotImplementedException();
+            return ServiziBologna.RicercaLocali(ricerca).Result;
         }
     }
 }
