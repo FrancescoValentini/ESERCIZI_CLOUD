@@ -28,4 +28,9 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+
+app.UseEndpoints(endpoints => {
+    endpoints.UseSoapEndpoint<I_Calcolatrice>("/service.wsdl", new SoapEncoderOptions(), SoapSerializer.XmlSerializer);
+});
+
 app.Run();
