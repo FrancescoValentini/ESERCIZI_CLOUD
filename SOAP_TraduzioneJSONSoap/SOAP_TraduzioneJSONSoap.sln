@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAP_TraduzioneJSONSoap", "SOAP_TraduzioneJSONSoap\SOAP_TraduzioneJSONSoap.csproj", "{D182193C-BD9C-483E-BC4A-054D599598FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bologna.Modelli", "Bologna.Modelli\Bologna.Modelli.csproj", "{EF328A2F-C65B-4662-90B3-306262C634C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D182193C-BD9C-483E-BC4A-054D599598FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D182193C-BD9C-483E-BC4A-054D599598FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D182193C-BD9C-483E-BC4A-054D599598FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF328A2F-C65B-4662-90B3-306262C634C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF328A2F-C65B-4662-90B3-306262C634C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF328A2F-C65B-4662-90B3-306262C634C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF328A2F-C65B-4662-90B3-306262C634C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

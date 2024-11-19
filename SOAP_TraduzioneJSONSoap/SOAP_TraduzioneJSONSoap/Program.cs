@@ -1,10 +1,15 @@
+using SOAP_TraduzioneJSONSoap.WSSoap;
+using SoapCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-var app = builder.Build();
 
+builder.Services.AddSoapCore();
+builder.Services.AddScoped<IServizioStoricoBologna, ServizioStoricoBologna>();
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment()) {
     app.UseExceptionHandler("/Error");
@@ -21,4 +26,7 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+app.UseEndpoints(endpoints => {
+    endpoints.UseSoapEndpoint<IServizioStoricoBologna>("/service.wsdl", new SoapEncoderOptions(), SoapSerializer.XmlSerializer);
+});
 app.Run();
